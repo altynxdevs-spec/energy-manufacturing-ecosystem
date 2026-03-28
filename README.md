@@ -2,7 +2,48 @@
 ### Industrial IoT and Smart Automation Ecosystem
 
 ---
+```mermaid
+graph LR
+    %% Advanced CSS Styling for Smoothness and Color
+    classDef userGateway fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef coreApp fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef aiEngine fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef cloudInfra fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef dataLayer fill:#422006,stroke:#fb923c,stroke-width:2px,color:#fff,rx:20,ry:20;
+    
+    %% Link Styling (Sleek grey paths)
+    linkStyle default stroke:#64748b,stroke-width:2px,fill:none;
 
+    %% Free-floating Nodes with Industrial Icons
+    Plant(["fa:fa-industry Plant Manager Portal"]):::userGateway
+    Field(["fa:fa-helmet-safety Field Engineer App"]):::userGateway
+    API(["fa:fa-network-wired IIoT API Gateway"]):::userGateway
+    
+    SCADA(["fa:fa-bolt SCADA Control System"]):::coreApp
+    PLM(["fa:fa-gears PLM Microservices"]):::coreApp
+    
+    Predict(["fa:fa-screwdriver-wrench Predictive Maintenance"]):::aiEngine
+    Anomaly(["fa:fa-wave-square AI Anomaly Detection"]):::aiEngine
+    
+    Edge(["fa:fa-server Industrial Edge Nodes"]):::cloudInfra
+    Cloud(["fa:fa-cloud Resilient Grid Cloud"]):::cloudInfra
+    
+    CRM(["fa:fa-users-gear Asset Lifecycle CRM"]):::dataLayer
+    Data(["fa:fa-database Unified Telemetry Data"]):::dataLayer
+
+    %% Flow Path Connections
+    Plant == "Monitor" ==> API
+    Field == "OT Access" ==> API
+    API -. "Secure OT/IT" .-> PLM
+    API ==> SCADA
+    SCADA ==> Predict
+    Predict -. "Sensor Streams" .-> Anomaly
+    SCADA ==> Edge
+    Edge ==> Cloud
+    Cloud ==> CRM
+    Anomaly ==> Data
+    CRM ==> Data
+```
 ![Status](https://img.shields.io/badge/Status-BD5A00?style=flat) ![Proprietary](https://img.shields.io/badge/Proprietary-FF8C00?style=flat) &nbsp; ![Industry](https://img.shields.io/badge/Industry-004B8D?style=flat) ![Energy](https://img.shields.io/badge/Energy-007FFF?style=flat) &nbsp; ![Architecture](https://img.shields.io/badge/Architecture-00695C?style=flat) ![Automation](https://img.shields.io/badge/Automation-26A69A?style=flat)
 
 This repository serves as a mission-critical engineering showcase by **Altynx**. It demonstrates a unified approach to modern Industrial technology, focusing on operational automation, predictive maintenance, and energy efficiency orchestration.
